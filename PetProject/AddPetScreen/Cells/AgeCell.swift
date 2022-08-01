@@ -9,7 +9,8 @@ import UIKit
 
 class AgeCell: UITableViewCell {
     
-
+    @IBOutlet weak var ageField: UITextField!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

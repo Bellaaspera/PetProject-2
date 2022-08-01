@@ -46,7 +46,7 @@ extension BreedCell: UIPickerViewDataSource, UIPickerViewDelegate {
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        breedField.text = breedType[row]
+        breedField.text = breedType.catBreed[row]
     }
     
 }
