@@ -14,6 +14,7 @@
 		0EA5053E28918139009582AB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0EA5053D28918139009582AB /* Assets.xcassets */; };
 		0EA5054128918139009582AB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0EA5053F28918139009582AB /* LaunchScreen.storyboard */; };
 		0EA5054C289182F8009582AB /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA5054B289182F8009582AB /* User.swift */; };
+		30A6A18D289802FA0039EC33 /* AddPetStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30A6A18C289802FA0039EC33 /* AddPetStoryboard.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		0EA5054028918139009582AB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0EA5054228918139009582AB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0EA5054B289182F8009582AB /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		30A6A18C289802FA0039EC33 /* AddPetStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddPetStoryboard.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 		0EA5053328918139009582AB /* PetProject */ = {
 			isa = PBXGroup;
 			children = (
+				30A6A18B2898029F0039EC33 /* AddPetScreen */,
 				0EA5054928918165009582AB /* App */,
 				0EA5054A289182E2009582AB /* Models */,
 				0EA505482891814C009582AB /* Storyboards */,
@@ -100,6 +103,46 @@
 				0EA5053828918139009582AB /* ViewController.swift */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		30A6A18B2898029F0039EC33 /* AddPetScreen */ = {
+			isa = PBXGroup;
+			children = (
+				30A6A191289809370039EC33 /* ViewControlles */,
+				30A6A190289809180039EC33 /* DataSource */,
+				30A6A18E289808E00039EC33 /* Cells */,
+				30A6A18F289809090039EC33 /* Model */,
+				30A6A18C289802FA0039EC33 /* AddPetStoryboard.storyboard */,
+			);
+			path = AddPetScreen;
+			sourceTree = "<group>";
+		};
+		30A6A18E289808E00039EC33 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		30A6A18F289809090039EC33 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		30A6A190289809180039EC33 /* DataSource */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = DataSource;
+			sourceTree = "<group>";
+		};
+		30A6A191289809370039EC33 /* ViewControlles */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewControlles;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -161,6 +204,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0EA5054128918139009582AB /* LaunchScreen.storyboard in Resources */,
+				30A6A18D289802FA0039EC33 /* AddPetStoryboard.storyboard in Resources */,
 				0EA5053E28918139009582AB /* Assets.xcassets in Resources */,
 				0EA5053C28918139009582AB /* Main.storyboard in Resources */,
 			);
