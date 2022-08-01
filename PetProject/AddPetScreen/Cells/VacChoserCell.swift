@@ -8,6 +8,9 @@
 import UIKit
 
 class VacChoserCell: UITableViewCell {
+    
+    @IBOutlet weak var vaccNameLabel: UILabel!
+    @IBOutlet weak var vaccSwitch: UISwitch!
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -18,6 +21,10 @@ class VacChoserCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    @IBAction func switchPressed(_ sender: UISwitch) {
+        
     }
 
 }

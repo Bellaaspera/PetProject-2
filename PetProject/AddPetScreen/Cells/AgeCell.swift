@@ -8,6 +8,7 @@
 import UIKit
 
 class AgeCell: UITableViewCell {
+    
 
     override func awakeFromNib() {
         super.awakeFromNib()

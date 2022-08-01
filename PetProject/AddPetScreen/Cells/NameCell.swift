@@ -8,6 +8,8 @@
 import UIKit
 
 class NameCell: UITableViewCell {
+    
+    @IBOutlet weak var petNameField: UITextField!
 
     override func awakeFromNib() {
         super.awakeFromNib()
