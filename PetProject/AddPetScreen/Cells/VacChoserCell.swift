@@ -6,15 +6,19 @@
 //
 
 import UIKit
-
+protocol VacChoserCellDelegate {
+    func switchPressed(_ sender: UISwitch, cell: VacChoserCell)
+}
 class VacChoserCell: UITableViewCell {
     
     @IBOutlet weak var vaccNameLabel: UILabel!
     @IBOutlet weak var vaccSwitch: UISwitch!
-
+    
+    var delegate: VacChoserCellDelegate?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        
+        vaccSwitch.isOn = false
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -24,10 +28,11 @@ class VacChoserCell: UITableViewCell {
     }
     
     @IBAction func switchPressed(_ sender: UISwitch) {
-        print((vaccNameLabel.text ?? "Нихуя") + " switch is " + (sender.isOn ? "ON" : "OFF"))
-        guard let vaccVC = UITableViewController() as? VacChoserTableViewController else { return }
-        vaccVC.selectedVacc.append(vaccNameLabel.text ?? "Ничего не пришло")
-        print(vaccVC.selectedVacc)
+        self.delegate?.switchPressed(sender, cell: self)
+//        print((vaccNameLabel.text ?? "Нихуя") + " switch is " + (sender.isOn ? "ON" : "OFF"))
+//        guard let vaccVC = UITableViewController() as? VacChoserTableViewController else { return }
+//        vaccVC.selectedVacc.append(vaccNameLabel.text ?? "Ничего не пришло")
+//        print(vaccVC.selectedVacc)
         
     }
 

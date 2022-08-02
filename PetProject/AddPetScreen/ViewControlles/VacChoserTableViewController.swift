@@ -7,21 +7,27 @@
 
 import UIKit
 
-class VacChoserTableViewController: UITableViewController {
-    
+class VacChoserTableViewController: UITableViewController, VacChoserCellDelegate {
+
     var vaccines: [String]!
     var selectedVacc: [String] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
-
+    
+    func switchPressed(_ sender: UISwitch, cell: VacChoserCell) {
+        guard let indexPath = self.tableView.indexPath(for: cell) else { return }
+        if cell.vaccSwitch.isOn {
+            selectedVacc.append(cell.vaccNameLabel.text ?? "something wrong")
+        print(selectedVacc)
+        } else {
+            //  MARK: Легко сломать, обратить внимание.
+            selectedVacc.remove(at: indexPath.row)
+            print(selectedVacc)
+        }
+    }
     // MARK: - Table view data source
 
 
@@ -29,26 +35,16 @@ class VacChoserTableViewController: UITableViewController {
         
         vaccines.count
     }
-
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         if let cell = tableView.dequeueReusableCell(withIdentifier: "vaccCell", for: indexPath) as? VacChoserCell {
+            cell.delegate = self
             cell.vaccNameLabel.text = vaccines[indexPath.row]
+            
             return cell
         }
         return UITableViewCell()
     }
-
-
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+    
 }

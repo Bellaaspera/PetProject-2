@@ -11,7 +11,7 @@ class AdditionalCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        selectionStyle = .none
+        selectionStyle = .gray
         accessoryType = .disclosureIndicator
         
     }
