@@ -8,15 +8,15 @@
 import Foundation
 
 class DataStore {
-    let catDefaultVacc = ["Вакцинка", "Вакциночка", "Справочка"]
-    let dogDefaultVacc = ["Ошейник", "Мисочка","Переноска"]
-    let catBreed = ["Кот Баюн","Председатель Мяу", "Дворовый бандит"]
-    let dogBreed = ["Борзая", "Скромная", "Умеренная"]
+    let catDefaultVacc = ["It wasn't me vac", "Go vac yourself!", "Is it covid again?"]
+    let dogDefaultVacc = ["Good boy vac", "Can i get some food?","Woof-woof Vac"]
+    let catBreed = ["Who","lives", "in pineapple", "under the sea?"]
+    let dogBreed = ["Good boy", "Very good boy", "Not that good", "one"]
     
     enum AddPetCells: String, CaseIterable {
-        case name = "Имя животного"
-        case age = "Возраст"
-        case breed = "Порода"
-        case add = "Дополнительно"
+        case name = "Pet's name"
+        case age = "Pet's age"
+        case breed = "Pet's breed"
+        case add = "Additional"
     }
 }

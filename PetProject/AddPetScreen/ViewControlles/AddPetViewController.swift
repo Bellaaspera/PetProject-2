@@ -38,7 +38,7 @@ class AddPetViewController: UIViewController {
     }
 
     @IBAction func saveButtonPressed(_ sender: Any) {
-        print(isItACat, petName, petAge, petBreed)
+        print(isItACat, petName, petAge, petBreed, vaccDone)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -48,6 +48,11 @@ class AddPetViewController: UIViewController {
         } else {
             vaccTVC.vaccines = vaccData.dogDefaultVacc
         }
+    }
+    
+    @IBAction func unwind(for segue: UIStoryboardSegue) {
+        guard let vacTVC = segue.source as? VacChoserTableViewController else { return }
+        vaccDone = vacTVC.selectedVacc
     }
     
     @objc private func didTapDone() {
@@ -111,8 +116,7 @@ extension AddPetViewController: UITableViewDataSource, UITableViewDelegate {
                 }
             case .add:
                 if let cell = tableView.dequeueReusableCell(withIdentifier: "addCell", for: indexPath) as? AdditionalCell {
-                    var content = cell.defaultContentConfiguration()
-                    content.text = DataStore.AddPetCells.allCases[indexPath.row].rawValue
+                    cell.addLabel.text = DataStore.AddPetCells.allCases[indexPath.row].rawValue
                     return cell
                 }
         }

@@ -8,7 +8,9 @@
 import UIKit
 
 class AdditionalCell: UITableViewCell {
-
+    
+    @IBOutlet weak var addLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         selectionStyle = .gray

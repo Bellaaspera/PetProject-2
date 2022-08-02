@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Isc-lD-eAK">
     <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -18,10 +18,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="RcW-qW-hGc">
-                                <rect key="frame" x="48" y="199" width="224" height="32"/>
+                                <rect key="frame" x="48" y="243" width="224" height="32"/>
                                 <segments>
-                                    <segment title="Кот"/>
-                                    <segment title="Пес"/>
+                                    <segment title="Cat"/>
+                                    <segment title="Dog"/>
                                 </segments>
                                 <connections>
                                     <action selector="petSelected:" destination="Y6W-OH-hqX" eventType="valueChanged" id="0EH-wU-oCy"/>
@@ -32,18 +32,18 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </pickerView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Pu6-BN-Irr">
-                                <rect key="frame" x="0.0" y="256" width="320" height="219"/>
+                                <rect key="frame" x="0.0" y="300" width="320" height="175"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="nameCell" id="KmI-WX-cxg" customClass="NameCell" customModule="PetProject" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="44.5" width="320" height="42.5"/>
+                                        <rect key="frame" x="0.0" y="44.5" width="320" height="42"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="KmI-WX-cxg" id="nuU-fJ-t5d">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="42.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="42"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Имя" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2Sx-w9-gUJ">
-                                                    <rect key="frame" x="16" y="8" width="288" height="26.5"/>
+                                                    <rect key="frame" x="16" y="8" width="288" height="26"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
@@ -60,14 +60,14 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ageCell" id="jnJ-Hq-aA6" customClass="AgeCell" customModule="PetProject" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="87" width="320" height="42.5"/>
+                                        <rect key="frame" x="0.0" y="86.5" width="320" height="42"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="jnJ-Hq-aA6" id="QTU-Hj-7uL">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="42.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="42"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8ie-MI-Ewc">
-                                                    <rect key="frame" x="16" y="8" width="288" height="26.5"/>
+                                                    <rect key="frame" x="16" y="8" width="288" height="26"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
@@ -84,14 +84,14 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="breedCell" id="UTI-4p-rfb" customClass="BreedCell" customModule="PetProject" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="129.5" width="320" height="42.5"/>
+                                        <rect key="frame" x="0.0" y="128.5" width="320" height="42"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="UTI-4p-rfb" id="X0K-Xz-vce">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="42.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="42"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="q0e-K9-TZm">
-                                                    <rect key="frame" x="16" y="8" width="288" height="26.5"/>
+                                                    <rect key="frame" x="16" y="8" width="288" height="26"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
@@ -109,13 +109,26 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="addCell" id="Idm-hw-lY2" customClass="AdditionalCell" customModule="PetProject" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="172" width="320" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="170.5" width="320" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Idm-hw-lY2" id="x5G-I7-nAp">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pm7-DO-AFA">
+                                                    <rect key="frame" x="16" y="11" width="48" height="24"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="pm7-DO-AFA" firstAttribute="leading" secondItem="x5G-I7-nAp" secondAttribute="leading" constant="16" id="KQK-ln-6r7"/>
+                                                <constraint firstItem="pm7-DO-AFA" firstAttribute="top" secondItem="x5G-I7-nAp" secondAttribute="top" constant="11" id="bz1-P7-UfJ"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="addLabel" destination="pm7-DO-AFA" id="tNw-D4-DBJ"/>
                                             <segue destination="w4F-XG-aKl" kind="show" id="zjG-k7-gDm"/>
                                         </connections>
                                     </tableViewCell>
@@ -134,7 +147,7 @@
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="X8k-3m-kPV">
-                                <rect key="frame" x="40" y="42" width="240" height="133"/>
+                                <rect key="frame" x="40" y="86" width="240" height="133"/>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
@@ -160,6 +173,7 @@
                             </mask>
                         </variation>
                     </view>
+                    <navigationItem key="navigationItem" id="mBU-cy-Zkt"/>
                     <connections>
                         <outlet property="petImage" destination="X8k-3m-kPV" id="yEl-GI-USG"/>
                         <outlet property="petSelector" destination="RcW-qW-hGc" id="v5P-BO-3qA"/>
@@ -168,14 +182,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="18.75" y="79.225352112676063"/>
+            <point key="canvasLocation" x="1016.25" y="79.225352112676063"/>
         </scene>
         <!--Vac Choser Table View Controller-->
         <scene sceneID="dKE-Jv-Vmb">
             <objects>
                 <tableViewController id="w4F-XG-aKl" customClass="VacChoserTableViewController" customModule="PetProject" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="mH4-eg-Naw">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="548"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
@@ -217,11 +231,31 @@
                             <outlet property="delegate" destination="w4F-XG-aKl" id="uaG-2g-UeW"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="cvk-je-UnQ"/>
+                    <navigationItem key="navigationItem" id="cvk-je-UnQ">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="qOw-ec-BuC"/>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0TM-a0-jiM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="780" y="80"/>
+            <point key="canvasLocation" x="1777.5" y="79.225352112676063"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="67d-Fr-FiF">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Isc-lD-eAK" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="uRg-yz-xJy">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Y6W-OH-hqX" kind="relationship" relationship="rootViewController" id="pbI-hm-ejK"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ots-kl-5Wl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="18.75" y="79.225352112676063"/>
         </scene>
     </scenes>
     <resources>
