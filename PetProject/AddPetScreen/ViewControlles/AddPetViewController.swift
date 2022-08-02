@@ -7,14 +7,19 @@
 
 import UIKit
 
-class AddPetViewController: UIViewController {
+protocol ImFuckingTiredOfProtocol {
     
+}
+
+class AddPetViewController: UIViewController, UIPickerViewDelegate {
+
     @IBOutlet weak var petImage: UIImageView!
     @IBOutlet weak var petSelector: UISegmentedControl!
     @IBOutlet weak var settings: UITableView!
     
     private let vaccData = DataStore()
     private var petList = Pet.getPetList()
+    var delegate: ImFuckingTiredOfProtocol?
     
     private var isItACat: Bool?
     private var petName: String?
@@ -22,20 +27,23 @@ class AddPetViewController: UIViewController {
     private var petBreed: String?
     private var vaccDone: [String]?
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         petImage.image = UIImage(named: "defaultImage")
     }
     
     @IBAction func petSelected(_ sender: UISegmentedControl) {
+        
         switch petSelector.selectedSegmentIndex {
             case 0:
                 isItACat = true
                 petImage.image = UIImage(named: "catImage")
+                
             default:
                 isItACat = false
                 petImage.image = UIImage(named: "dogImage")
-                
         }
     }
     
@@ -125,6 +133,14 @@ extension AddPetViewController: UITableViewDataSource, UITableViewDelegate {
                     cell.breedField.placeholder = DataStore.AddPetCells.allCases[indexPath.row].rawValue
                     cell.breedField.delegate = self
                     cell.breedField.tag = indexPath.row
+                    cell.breedPicker.delegate = self
+                    if isItACat != false {
+                        cell.isCat = true
+                        cell.breedPicker.reloadAllComponents()
+                    } else {
+                        cell.isCat = false
+                        cell.breedPicker.reloadAllComponents()
+                    }
                     return cell
                 }
             case .add:

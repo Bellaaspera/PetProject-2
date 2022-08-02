@@ -25,7 +25,6 @@ class VacChoserTableViewController: UITableViewController, VacChoserCellDelegate
             print(indexPath.row)
             print(selectedVacc)
         } else {
-            //  MARK: Легко сломать, обратить внимание.
             if let toRemove = cell.vaccNameLabel.text {
                 selectedVacc.removeAll(where: { toRemove.contains($0)})
                 print(selectedVacc)
