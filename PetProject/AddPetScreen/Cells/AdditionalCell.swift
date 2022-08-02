@@ -13,6 +13,7 @@ class AdditionalCell: UITableViewCell {
         super.awakeFromNib()
         selectionStyle = .none
         accessoryType = .disclosureIndicator
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

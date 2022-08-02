@@ -13,10 +13,10 @@ class DataStore {
     let catBreed = ["Кот Баюн","Председатель Мяу", "Дворовый бандит"]
     let dogBreed = ["Борзая", "Скромная", "Умеренная"]
     
-    enum AddPetCells: CaseIterable {
-        case name
-        case age
-        case breed
-        case add
+    enum AddPetCells: String, CaseIterable {
+        case name = "Имя животного"
+        case age = "Возраст"
+        case breed = "Порода"
+        case add = "Дополнительно"
     }
 }

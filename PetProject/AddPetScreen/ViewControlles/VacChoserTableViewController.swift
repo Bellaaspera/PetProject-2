@@ -9,7 +9,7 @@ import UIKit
 
 class VacChoserTableViewController: UITableViewController {
     
-    let vaccines = ["Что-то","еще","тест"]
+    var vaccines: [String]!
     var selectedVacc: [String] = []
 
     override func viewDidLoad() {

@@ -176,10 +176,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="vaccCell" id="bNr-RH-Mx4">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="vaccCell" id="bNr-RH-Mx4" customClass="VacChoserCell" customModule="PetProject" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="44.5" width="320" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="bNr-RH-Mx4" id="zoX-ir-nX5" customClass="VacChoserCell" customModule="PetProject" customModuleProvider="target">
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="bNr-RH-Mx4" id="zoX-ir-nX5">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
@@ -192,7 +192,7 @@
                                         <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1cV-aC-dHL">
                                             <rect key="frame" x="255" y="6" width="51" height="31"/>
                                             <connections>
-                                                <action selector="switchPressed:" destination="zoX-ir-nX5" eventType="valueChanged" id="lrp-tE-zYx"/>
+                                                <action selector="switchPressed:" destination="bNr-RH-Mx4" eventType="valueChanged" id="hee-AU-6t6"/>
                                             </connections>
                                         </switch>
                                     </subviews>
@@ -202,11 +202,11 @@
                                         <constraint firstAttribute="trailing" secondItem="1cV-aC-dHL" secondAttribute="trailing" constant="16" id="qLZ-W0-61U"/>
                                         <constraint firstItem="Y2Y-Eg-itq" firstAttribute="top" secondItem="zoX-ir-nX5" secondAttribute="top" constant="11" id="rLv-tz-END"/>
                                     </constraints>
-                                    <connections>
-                                        <outlet property="vaccNameLabel" destination="Y2Y-Eg-itq" id="vrP-fl-EDv"/>
-                                        <outlet property="vaccSwitch" destination="1cV-aC-dHL" id="48O-pv-eVe"/>
-                                    </connections>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="vaccNameLabel" destination="Y2Y-Eg-itq" id="yLw-Nl-WsL"/>
+                                    <outlet property="vaccSwitch" destination="1cV-aC-dHL" id="Nbz-fY-9b0"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
