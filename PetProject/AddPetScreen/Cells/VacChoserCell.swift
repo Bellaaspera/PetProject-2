@@ -24,6 +24,10 @@ class VacChoserCell: UITableViewCell {
     }
     
     @IBAction func switchPressed(_ sender: UISwitch) {
+        print((vaccNameLabel.text ?? "Нихуя") + " switch is " + (sender.isOn ? "ON" : "OFF"))
+        guard let vaccVC = UITableViewController() as? VacChoserTableViewController else { return }
+        vaccVC.selectedVacc.append(vaccNameLabel.text ?? "Ничего не пришло")
+        print(vaccVC.selectedVacc)
         
     }
 
