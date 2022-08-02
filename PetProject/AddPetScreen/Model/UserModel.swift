@@ -7,34 +7,27 @@
 
 import Foundation
 
+
 struct User {
-    var username: String
-    var password: String
-//    var pets: [Animal: [Info]] = [:]
-        // пробую улучшить
-    var pet: PetInfo
+    var data: [String: [Pet]]
     
     static func getUserList() -> [User] {
-        let userList: [User] = []
+        var userList: [User] = []
         return userList
     }
 }
 
-enum Animal {
-    case dog
-    case cat
-}
-struct PetInfo {
-    var name: String
-    var spicies: Bool
-    var age: Int
-    var breed: String
-    var vaccinations: [String]
+struct Pet {
+    var isCat: Bool
+    var name: String = ""
+    var breed: String = ""
+    var age: Int = 0
+    var vaccinations: [String] = []
+    
+    static func getPetList() -> [Pet] {
+        var petList: [Pet] = []
+        return petList
+    }
 }
 
-//struct Info {
-//    var name: String = ""
-//    var breed: String = ""
-//    var age: Int = 0
-//    var vaccinations: [String] = []
-//}
+

@@ -14,6 +14,8 @@ class AddPetViewController: UIViewController {
     @IBOutlet weak var settings: UITableView!
     
     private let vaccData = DataStore()
+    private var petList = Pet.getPetList()
+    
     private var isItACat: Bool?
     private var petName: String?
     private var petAge: Int?
@@ -38,7 +40,18 @@ class AddPetViewController: UIViewController {
     }
     
     @IBAction func saveButtonPressed(_ sender: Any) {
-        print(isItACat, petName, petAge, petBreed, vaccDone)
+        getPet()
+        print(petList)
+    }
+    
+    private func getPet() {
+        
+        var pet = Pet(isCat: isItACat ?? true)
+        pet.name = petName ?? "something wrong"
+        pet.age = petAge ?? 0
+        pet.breed = petBreed ?? "check your dev,dude!"
+        pet.vaccinations = vaccDone ?? [""]
+        petList.append(pet)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -124,7 +137,7 @@ extension AddPetViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
 }
-
+// more delegates to the god of delegates!
 extension AddPetViewController: UITextFieldDelegate, NameCellDelegate, AgeCellDelegate, BreedCellDelegate {
     
     func textFieldDidEndEditing(_ textField: UITextField) {
@@ -152,3 +165,4 @@ extension AddPetViewController {
         present(alert, animated: true)
     }
 }
+

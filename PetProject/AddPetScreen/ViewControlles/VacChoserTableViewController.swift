@@ -8,41 +8,36 @@
 import UIKit
 
 class VacChoserTableViewController: UITableViewController, VacChoserCellDelegate {
-
+    
     var vaccines: [String]!
     var selectedVacc: [String] = []
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
     }
     
     func switchPressed(_ sender: UISwitch, cell: VacChoserCell) {
         guard let indexPath = self.tableView.indexPath(for: cell) else { return }
         if cell.vaccSwitch.isOn {
-//            selectedVacc.insert(cell.vaccNameLabel.text ?? "Что-пошло не так", at: indexPath.row)
             
             selectedVacc.append(cell.vaccNameLabel.text ?? "something wrong")
             print(indexPath.row)
             print(selectedVacc)
         } else {
             //  MARK: Легко сломать, обратить внимание.
-            // всрато, но покатит пока.
-//            selectedVacc.delete(cell.vaccNameLabel.text)
-//
-//            if indexPath.row < selectedVacc.endIndex {
-//                selectedVacc.insert("", at: indexPath.row)
-//                return
-//            } else {
-//            selectedVacc.removeAll(where: cell.vaccNameLabel.text)
-            print(indexPath.row)
-            print(selectedVacc)
+            if let toRemove = cell.vaccNameLabel.text {
+                selectedVacc.removeAll(where: { toRemove.contains($0)})
+                print(selectedVacc)
+            } else {
+                return
+            }
         }
         
     }
     // MARK: - Table view data source
-
-
+    
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         vaccines.count
