@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol NameCellDelegate {
+    
+}
+
 class NameCell: UITableViewCell {
     
     @IBOutlet weak var petNameField: UITextField!

@@ -7,13 +7,17 @@
 
 import UIKit
 
+protocol AgeCellDelegate {
+    
+}
+
 class AgeCell: UITableViewCell {
     
     @IBOutlet weak var ageField: UITextField!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        ageField.keyboardType = .numberPad
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -21,5 +25,6 @@ class AgeCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-
+    
+    
 }

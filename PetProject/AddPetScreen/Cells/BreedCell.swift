@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol BreedCellDelegate {
+    
+}
+
 class BreedCell: UITableViewCell {
     
     @IBOutlet weak var breedField: UITextField!
