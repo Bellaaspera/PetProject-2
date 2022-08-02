@@ -36,7 +36,7 @@ class AddPetViewController: UIViewController {
                 
         }
     }
-
+    
     @IBAction func saveButtonPressed(_ sender: Any) {
         print(isItACat, petName, petAge, petBreed, vaccDone)
     }
@@ -78,7 +78,7 @@ class AddPetViewController: UIViewController {
         
         keyboardToolbar.items = [flexBarButton, doneButton]
     }
-
+    
 }
 
 extension AddPetViewController: UITableViewDataSource, UITableViewDelegate {
@@ -90,7 +90,7 @@ extension AddPetViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let settings = DataStore.AddPetCells.allCases[indexPath.row]
-    
+        
         switch settings {
                 
             case .name:
@@ -108,10 +108,10 @@ extension AddPetViewController: UITableViewDataSource, UITableViewDelegate {
                     return cell
                 }
             case .breed:
-                        if let cell = tableView.dequeueReusableCell(withIdentifier: "breedCell", for: indexPath) as? BreedCell {
-                            cell.breedField.placeholder = DataStore.AddPetCells.allCases[indexPath.row].rawValue
-                            cell.breedField.delegate = self
-                            cell.breedField.tag = indexPath.row
+                if let cell = tableView.dequeueReusableCell(withIdentifier: "breedCell", for: indexPath) as? BreedCell {
+                    cell.breedField.placeholder = DataStore.AddPetCells.allCases[indexPath.row].rawValue
+                    cell.breedField.delegate = self
+                    cell.breedField.tag = indexPath.row
                     return cell
                 }
             case .add:
@@ -133,7 +133,7 @@ extension AddPetViewController: UITextFieldDelegate, NameCellDelegate, AgeCellDe
                 petName = textField.text ?? "Unknown pet"
             case 1:
                 if let text = Int(textField.text ?? "0") {
-                petAge = text
+                    petAge = text
                 } else {
                     showAlert(title: "Numbers,", message: "young lady!")
                 }

@@ -32,7 +32,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </pickerView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Pu6-BN-Irr">
-                                <rect key="frame" x="0.0" y="300" width="320" height="175"/>
+                                <rect key="frame" x="0.0" y="300" width="320" height="169"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="nameCell" id="KmI-WX-cxg" customClass="NameCell" customModule="PetProject" customModuleProvider="target">
@@ -117,6 +117,9 @@
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pm7-DO-AFA">
                                                     <rect key="frame" x="16" y="11" width="48" height="24"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="48" id="gg7-v1-RVC"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -139,9 +142,17 @@
                                 </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9kF-uD-ebK">
-                                <rect key="frame" x="111.5" y="502" width="97" height="31"/>
+                                <rect key="frame" x="125" y="496" width="70" height="37"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Сохранить"/>
+                                <buttonConfiguration key="configuration" style="filled">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="Save">
+                                            <attributes>
+                                                <font key="NSFont" size="20" name="Helvetica"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                </buttonConfiguration>
                                 <connections>
                                     <action selector="saveButtonPressed:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="bSG-0J-kep"/>
                                 </connections>
@@ -232,10 +243,15 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="cvk-je-UnQ">
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="qOw-ec-BuC"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="qOw-ec-BuC">
+                            <connections>
+                                <segue destination="him-ig-ZSw" kind="unwind" unwindAction="unwindFor:" id="u24-5F-lwV"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0TM-a0-jiM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="him-ig-ZSw" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1777.5" y="79.225352112676063"/>
         </scene>
