@@ -7,8 +7,8 @@
 
 import UIKit
 
-protocol ImFuckingTiredOfProtocol {
-    
+protocol BreedDataSend {
+    func passBreedData() -> [String]
 }
 
 class AddPetViewController: UIViewController, UIPickerViewDelegate {
@@ -17,11 +17,14 @@ class AddPetViewController: UIViewController, UIPickerViewDelegate {
     @IBOutlet weak var petSelector: UISegmentedControl!
     @IBOutlet weak var settings: UITableView!
     
-    private let vaccData = DataStore()
+    private let petData = DataStore()
     private var petList = Pet.getPetList()
-    var delegate: ImFuckingTiredOfProtocol?
+    private var vaccList: [String]?
+    var breeds: [String]?
+    var delegate: BreedDataSend?
     
-    private var isItACat: Bool?
+    
+    private var isItACat: AnymalType?
     private var petName: String?
     private var petAge: Int?
     private var petBreed: String?
@@ -32,18 +35,29 @@ class AddPetViewController: UIViewController, UIPickerViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         petImage.image = UIImage(named: "defaultImage")
+        
     }
     
     @IBAction func petSelected(_ sender: UISegmentedControl) {
         
         switch petSelector.selectedSegmentIndex {
             case 0:
-                isItACat = true
+                isItACat = .cat
+                breeds = petData.catBreed
+                vaccList = petData.catDefaultVacc
+                delegate?.passBreedData()
+                settings.reloadData()
+                print(breeds)
                 petImage.image = UIImage(named: "catImage")
                 
             default:
-                isItACat = false
+                isItACat = .dog
+                breeds = petData.dogBreed
+                vaccList = petData.dogDefaultVacc
+                settings.reloadData()
+                print(breeds)
                 petImage.image = UIImage(named: "dogImage")
+                
         }
     }
     
@@ -52,9 +66,13 @@ class AddPetViewController: UIViewController, UIPickerViewDelegate {
         print(petList)
     }
     
+    func passBreedData() -> [String] {
+        return self.breeds ?? ["Oh"]
+    }
+    
     private func getPet() {
         
-        var pet = Pet(isCat: isItACat ?? true)
+        var pet = Pet(animalType: isItACat ?? .cat)
         pet.name = petName ?? "something wrong"
         pet.age = petAge ?? 0
         pet.breed = petBreed ?? "check your dev,dude!"
@@ -64,12 +82,11 @@ class AddPetViewController: UIViewController, UIPickerViewDelegate {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let vaccTVC = segue.destination as? VacChoserTableViewController else {return}
-        if isItACat != false {
-            vaccTVC.vaccines = vaccData.catDefaultVacc
-        } else {
-            vaccTVC.vaccines = vaccData.dogDefaultVacc
-        }
+        
+            vaccTVC.vaccines = vaccList
     }
+    
+
     
     @IBAction func unwind(for segue: UIStoryboardSegue) {
         guard let vacTVC = segue.source as? VacChoserTableViewController else { return }
@@ -110,9 +127,9 @@ extension AddPetViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let settings = DataStore.AddPetCells.allCases[indexPath.row]
+        let set = DataStore.AddPetCells.allCases[indexPath.row]
         
-        switch settings {
+        switch set {
                 
             case .name:
                 if let cell = tableView.dequeueReusableCell(withIdentifier: "nameCell", for: indexPath) as? NameCell {
@@ -133,14 +150,11 @@ extension AddPetViewController: UITableViewDataSource, UITableViewDelegate {
                     cell.breedField.placeholder = DataStore.AddPetCells.allCases[indexPath.row].rawValue
                     cell.breedField.delegate = self
                     cell.breedField.tag = indexPath.row
-                    cell.breedPicker.delegate = self
-                    if isItACat != false {
-                        cell.isCat = true
-                        cell.breedPicker.reloadAllComponents()
-                    } else {
-                        cell.isCat = false
-                        cell.breedPicker.reloadAllComponents()
-                    }
+                    cell.breed1?.passBreedData()
+
+                    
+                    
+ 
                     return cell
                 }
             case .add:

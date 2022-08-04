@@ -18,7 +18,7 @@ struct User {
 }
 
 struct Pet {
-    var isCat: Bool
+    var animalType: AnymalType
     var name: String = ""
     var breed: String = ""
     var age: Int = 0
@@ -30,6 +30,10 @@ struct Pet {
     }
 }
 
+enum AnymalType {
+    case cat
+    case dog
+}
 
 //
 //struct User {

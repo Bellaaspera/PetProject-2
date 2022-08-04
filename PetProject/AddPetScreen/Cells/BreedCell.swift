@@ -11,13 +11,20 @@ protocol BreedCellDelegate {
     
 }
 
-class BreedCell: UITableViewCell, ImFuckingTiredOfProtocol {
+class BreedCell: UITableViewCell, BreedDataSend {
+
+    
     
     @IBOutlet weak var breedField: UITextField!
     @IBOutlet weak var breedPicker: UIPickerView!
     
     private let breedType = DataStore()
-    var isCat = true
+    var breed1: BreedDataSend?
+    private var breed: [String]? {
+        didSet {
+            print(breed)
+        }
+    }
     var delegate: BreedCellDelegate?
     
     override func awakeFromNib() {
@@ -25,39 +32,46 @@ class BreedCell: UITableViewCell, ImFuckingTiredOfProtocol {
         breedPicker.dataSource = self
         breedPicker.delegate = self
         breedField.inputView = breedPicker
+        passBreedData()
+        
         
     }
+
+    
+    func passBreedData()-> [String]{
+        if let breedIncome = breed1?.passBreedData(){
+            self.breed = breedIncome
+            print(breed ?? "Nope")
+        }
+        return breed ?? ["Second retrun"]
+    }
+    
+
     
 }
 
 extension BreedCell: UIPickerViewDataSource, UIPickerViewDelegate {
     
+
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         1
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        if isCat != false {
-           return breedType.catBreed.count
-        } else {
-           return breedType.dogBreed.count
-        }
+
+        return breed?.count ?? 1
     }
-    
+
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        if isCat != false {
-           return breedType.catBreed[row]
-        } else {
-           return  breedType.dogBreed[row]
-        }
+        
+       return breed?[row]
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        if isCat != false {
-            breedField.text = breedType.catBreed[row]
-        } else {
-            breedField.text = breedType.dogBreed[row]
-        }
+        
+        breedField.text = breed?[row]
+        print(breed)
     }
-    
+
 }
+
